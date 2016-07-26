@@ -18,15 +18,15 @@ const createHasError = ({ getIn }) => {
     }
     const errorKey = getErrorKey(name, type)
     const syncError = plainGetIn(syncErrors, errorKey)
-    if (syncError && typeof syncError === 'string') {
+    if (!!syncError) {
       return true
     }
     const asyncError = getIn(asyncErrors, errorKey)
-    if (asyncError && typeof asyncError === 'string') {
+    if (!!asyncError) {
       return true
     }
     const submitError = getIn(submitErrors, errorKey)
-    if (submitError && typeof submitError === 'string') {
+    if (!!submitError) {
       return true
     }
 
